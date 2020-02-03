@@ -7,7 +7,13 @@ const ArticlePage = ({ match }) => {
     const [articleInfo, setArticleInfo] = useState({ upvotes: 0, comments: [] });
 
     useEffect(() => {
-        setArticleInfo({ upvotes: Math.ceil(Math.random() * 10) });
+        const fetchArticleInfo = async () => {
+            const result = await fetch(`/api/articles/${name}`);
+            const body = await result.json();
+            setArticleInfo(body);
+        };
+
+        fetchArticleInfo();
     }, [name]);
 
     const matchingArticle = articles.find(article => article.name === name);
