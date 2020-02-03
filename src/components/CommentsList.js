@@ -1,6 +1,7 @@
 import React from 'react';
+import AddCommentForm from './AddCommentForm';
 
-const CommentsList = ({ comments }) => (
+const CommentsList = ({ comments, articleName, setArticleInfo }) => (
     <>
     <h3>Comments:</h3>
     {comments.map((comment, key) => (
@@ -9,6 +10,7 @@ const CommentsList = ({ comments }) => (
             <p>{comment.text}</p>
         </div>
     ))}
+    <AddCommentForm articleName={articleName} setArticleInfo={setArticleInfo} />
     </>
 );
 

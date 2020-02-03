@@ -25,7 +25,7 @@ const ArticlePage = ({ match }) => {
         <h1>{matchingArticle.title}</h1>
         <UpvotesSection upvotes={articleInfo.upvotes} articleName={name} setArticleInfo={setArticleInfo} />
         {matchingArticle.content.map((paragraph, key) => <p key={key}>{paragraph}</p>)}
-        <CommentsList comments={articleInfo.comments}/>
+        <CommentsList comments={articleInfo.comments} articleName={name} setArticleInfo={setArticleInfo} />
         </>
     ) : (
         <h1>Uh oh, looks like that article doesn't exist</h1>
