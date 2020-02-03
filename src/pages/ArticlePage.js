@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CommentsList from '../components/CommentsList';
+import UpvotesSection from '../components/UpvotesSection';
 import articles from './article-content';
 
 const ArticlePage = ({ match }) => {
@@ -22,9 +23,9 @@ const ArticlePage = ({ match }) => {
     (
         <>
         <h1>{matchingArticle.title}</h1>
-        <p>This article has {articleInfo.upvotes} upvotes</p>
+        <UpvotesSection upvotes={articleInfo.upvotes} articleName={name} setArticleInfo={setArticleInfo} />
         {matchingArticle.content.map((paragraph, key) => <p key={key}>{paragraph}</p>)}
-        <CommentsList comments={articleInfo.comments} />
+        <CommentsList comments={articleInfo.comments}/>
         </>
     ) : (
         <h1>Uh oh, looks like that article doesn't exist</h1>
